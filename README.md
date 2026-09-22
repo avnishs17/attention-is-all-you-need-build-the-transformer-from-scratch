@@ -11,8 +11,8 @@ python scaffold.py
 ## Steps
 
 - [x] **1.** build_token_to_id_vocab
-- [ ] **2.** build_id_to_token_vocab
-- [ ] **3.** encode_sentence_to_ids
+- [x] **2.** build_id_to_token_vocab
+- [x] **3.** encode_sentence_to_ids
 - [ ] **4.** decode_ids_to_tokens
 - [ ] **5.** pad_id_sequence
 - [ ] **6.** stack_padded_sequences_to_batch
