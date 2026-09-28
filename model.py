@@ -621,8 +621,8 @@ def run_transformer_forward(src_ids, tgt_ids, model_params, num_heads, pad_id):
     encoder_layers = model_params["encoder_layers"]
     decoder_layers = model_params["decoder_layers"]
 
-    # Infer d_model from token_embedding shape if not provided
-    d_model = model_params.get("d_model", token_embedding.shape[1])
+    # Infer d_model from token_embedding shape
+    d_model = token_embedding.shape[1]
 
 
     # Embed source and target sequences
