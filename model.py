@@ -712,8 +712,35 @@ def init_encoder_layer_parameters(d_model, num_heads, d_ff):
         "ffn_beta": _zeros(d_model),
     }
 
-# Step 53 - init_decoder_layer_parameters (not yet solved)
-# TODO: implement
+# Step 53 - init_decoder_layer_parameters
+import torch
+
+def init_decoder_layer_parameters(d_model, num_heads, d_ff):
+    # TODO: return a dict of requires_grad tensors for one decoder layer
+
+    return {
+        "w_q_self": _randn(d_model, d_model),
+        "w_k_self": _randn(d_model, d_model),
+        "w_v_self": _randn(d_model, d_model),
+        "w_o_self": _randn(d_model, d_model),
+
+        "w_q_cross": _randn(d_model, d_model),
+        "w_k_cross": _randn(d_model, d_model),
+        "w_v_cross": _randn(d_model, d_model),
+        "w_o_cross": _randn(d_model, d_model),
+
+        "w1": _randn(d_model, d_ff),
+        "b1": _zeros(d_ff),
+        "w2": _randn(d_ff, d_model),
+        "b2": _zeros(d_model),
+
+        "self_gamma": _ones(d_model),
+        "self_beta": _zeros(d_model),
+        "cross_gamma": _ones(d_model),
+        "cross_beta": _zeros(d_model),
+        "ffn_gamma": _ones(d_model),
+        "ffn_beta": _zeros(d_model),
+    }
 
 # Step 54 - init_embedding_and_projection_parameters (not yet solved)
 # TODO: implement
