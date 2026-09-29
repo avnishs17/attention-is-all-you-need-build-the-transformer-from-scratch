@@ -234,7 +234,7 @@ def scaled_dot_product_attention(query, key, value, mask=None):
     scores = compute_raw_attention_scores(query, key)
 
     d_k = key.shape[-1]
-    scores = scale_attention_scores(scores, key.shape[-1])
+    scores = scale_attention_scores(scores, d_k)
 
     if mask is not None:
         scores = mask_attention_scores_with_neg_inf(scores, mask)
