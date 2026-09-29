@@ -686,8 +686,9 @@ def init_encoder_layer_parameters(d_model, num_heads, d_ff):
     # TODO: allocate w_q, w_k, w_v, w_o, w1, b1, w2, b2, attn_gamma, attn_beta, ffn_gamma, ffn_beta.
 
     def randn(*shape):
-        return (torch.randn(*shape, dtype=torch.float32) * 0.05).requires_grad_()
-
+        fan_in = shape[0]
+        return (torch.randn(*shape, dtype=torch.float32) / math.sqrt(fan_in)).requires_grad_()
+        
     def zeros(*shape):
         return torch.zeros(*shape, dtype=torch.float32, requires_grad=True)
 
